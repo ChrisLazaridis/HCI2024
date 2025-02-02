@@ -1,0 +1,687 @@
+[gd_scene load_steps=21 format=3 uid="uid://cetsb3b64ii8d"]
+
+[ext_resource type="Texture2D" uid="uid://bnoytucciw1c3" path="res://assets/MainMap.png" id="1_8xy5n"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_jh1io"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="2_ysu4n"]
+[ext_resource type="Script" path="res://Scripts/Campsites.gd" id="3_xy73e"]
+[ext_resource type="Script" path="res://Scripts/manager.gd" id="4_kkaig"]
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/kenneyUI-blue.tres" id="5_o4e2f"]
+[ext_resource type="Texture2D" uid="uid://df1cb1o1rh535" path="res://assets/light_buld.png" id="6_3gjop"]
+[ext_resource type="Script" path="res://Scripts/main_lights_button.gd" id="6_h8vdd"]
+[ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://assets/kenneyUI-green.tres" id="8_hew80"]
+[ext_resource type="Script" path="res://Scripts/gps.gd" id="9_11gy5"]
+[ext_resource type="Script" path="res://Scripts/order.gd" id="10_e7k83"]
+[ext_resource type="Texture2D" uid="uid://32grvtkmshiu" path="res://assets/order.png" id="10_yc406"]
+[ext_resource type="Texture2D" uid="uid://c2uspwadmhlva" path="res://assets/battery/batteryfull.png" id="11_mmbo8"]
+[ext_resource type="Script" path="res://Scripts/battery_button.gd" id="11_xpk8c"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://assets/kenneyUI.tres" id="12_k2td0"]
+[ext_resource type="Script" path="res://Scripts/notification_panel_weather.gd" id="13_qak7w"]
+[ext_resource type="Script" path="res://Scripts/notification_panel_events.gd" id="15_45c2h"]
+[ext_resource type="Texture2D" uid="uid://c0ltbdqtdllik" path="res://assets/chat.png" id="18_bcxkv"]
+[ext_resource type="Script" path="res://Scripts/chat_button.gd" id="18_u1ce0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csnbb"]
+size = Vector2(20.9049, 22.2318)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jh1io")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8xy5n")
+
+[node name="Camera" type="Camera2D" parent="Sprite2D"]
+position = Vector2(-2, -1)
+scale = Vector2(1e-05, 1e-05)
+zoom = Vector2(1.819, 1.812)
+script = ExtResource("2_ysu4n")
+
+[node name="Top_Left" type="Area2D" parent="."]
+collision_priority = 2.0
+script = ExtResource("3_xy73e")
+
+[node name="Grid1" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-304, -171)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid2" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-279, -171)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid3" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-254.498, -170.912)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid4" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-227, -171)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid5" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-201, -171)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid6" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-173, -171)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid7" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-304, -151)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid8" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-279, -151)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid9" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-254.498, -150.912)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid10" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-227, -151)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid11" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-201, -151)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid12" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-173, -151)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid13" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-304, -131)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid14" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-279, -131)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid15" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-254.498, -130.912)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid16" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-227, -131)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid17" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-201, -131)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid18" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-173, -131)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid19" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-304, -111)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid20" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-279, -111)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid21" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-254.498, -110.912)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid22" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-227, -111)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid23" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-201, -111)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid24" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-173, -111)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid25" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-304, -91)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid26" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-279, -91)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid27" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-254.498, -90.9123)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid28" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-227, -91)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid29" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-201, -91)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid30" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-173, -91)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid31" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-304, -71)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid32" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-279, -71)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid33" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-254.498, -70.9123)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid34" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-227, -71)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid35" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-201, -71)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid36" type="CollisionShape2D" parent="Top_Left"]
+position = Vector2(-173, -71)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Bottom Left" type="Area2D" parent="."]
+position = Vector2(0, 5)
+script = ExtResource("3_xy73e")
+
+[node name="Grid1" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-305, 38)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid2" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-280, 38)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid3" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-255.498, 38.0877)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid4" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-228, 38)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid5" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-202, 38)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid6" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-174, 38)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid7" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-305, 58)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid8" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-280, 58)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid9" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-255.498, 58.0877)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid10" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-228, 58)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid11" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-202, 58)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid12" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-174, 58)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid13" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-305, 78)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid14" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-280, 78)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid15" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-255.498, 78.0877)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid16" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-228, 78)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid17" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-202, 78)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid18" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-174, 78)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid19" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-305, 98)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid20" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-280, 98)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid21" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-255.498, 98.0877)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid22" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-228, 98)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid23" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-202, 98)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid24" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-174, 98)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid25" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-305, 118)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid26" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-280, 118)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid27" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-255.498, 118.088)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid28" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-228, 118)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid29" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-202, 118)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid30" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-174, 118)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid31" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-305, 138)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid32" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-280, 138)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid33" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-255.498, 138.088)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid34" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-228, 138)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid35" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-202, 138)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid36" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-174, 138)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid37" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-305, 158)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid38" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-280, 158)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid39" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-255.498, 158.088)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid40" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-228, 158)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid41" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-202, 158)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Grid42" type="CollisionShape2D" parent="Bottom Left"]
+position = Vector2(-174, 158)
+scale = Vector2(1.10042, 0.817539)
+shape = SubResource("RectangleShape2D_csnbb")
+
+[node name="Manager" type="Node2D" parent="."]
+script = ExtResource("4_kkaig")
+
+[node name="lights" type="Button" parent="."]
+offset_left = 282.0
+offset_right = 314.0
+offset_bottom = 32.0
+theme = ExtResource("5_o4e2f")
+script = ExtResource("6_h8vdd")
+
+[node name="Sprite2D" type="Sprite2D" parent="lights"]
+position = Vector2(15.5, 11.5)
+scale = Vector2(1.03125, 0.96875)
+texture = ExtResource("6_3gjop")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 135.0
+offset_top = -180.0
+offset_right = 315.0
+offset_bottom = -30.0
+theme = ExtResource("8_hew80")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 181.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 14
+text = "Humidity: 94%
+SOIL STABILITY 9.8
+SOIL IRRADIANCE 100,8"
+horizontal_alignment = 1
+autowrap_mode = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="GPS" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_11gy5")
+
+[node name="SharedGuide" type="Control" parent="GPS"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="GPS/SharedGuide"]
+layout_mode = 0
+offset_left = -247.0
+offset_top = -60.0
+offset_right = -229.0
+offset_bottom = 20.0
+
+[node name="ColorRect2" type="ColorRect" parent="GPS/SharedGuide"]
+layout_mode = 0
+offset_left = -230.0
+offset_top = -29.0
+offset_right = -104.0
+offset_bottom = -13.0
+
+[node name="GuideToShelter" type="Control" parent="GPS"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="GPS/GuideToShelter"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -111.0
+offset_right = 135.0
+offset_bottom = -95.0
+
+[node name="ColorRect2" type="ColorRect" parent="GPS/GuideToShelter"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -95.0
+offset_right = -104.0
+offset_bottom = -29.0
+
+[node name="GuideToFootball" type="Control" parent="GPS"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="GPS/GuideToFootball"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -13.0
+offset_right = -104.0
+offset_bottom = 74.0
+
+[node name="ColorRect2" type="ColorRect" parent="GPS/GuideToFootball"]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 58.0
+offset_right = 52.0
+offset_bottom = 74.0
+
+[node name="ColorRect3" type="ColorRect" parent="GPS/GuideToFootball"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 74.0
+offset_right = 52.0
+offset_bottom = 180.0
+
+[node name="ColorRect4" type="ColorRect" parent="GPS/GuideToFootball"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 165.0
+offset_right = 136.0
+offset_bottom = 180.0
+
+[node name="GuideToPool" type="Control" parent="GPS"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="GPS/GuideToPool"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -13.0
+offset_right = -104.0
+offset_bottom = 74.0
+
+[node name="ColorRect2" type="ColorRect" parent="GPS/GuideToPool"]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 58.0
+offset_right = 136.0
+offset_bottom = 74.0
+
+[node name="GuideToStage" type="Control" parent="GPS"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="GPS/GuideToStage"]
+layout_mode = 0
+offset_left = -104.0
+offset_top = -29.0
+offset_right = -75.0
+offset_bottom = -13.0
+
+[node name="Shelter" type="Button" parent="GPS"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = -178.0
+offset_right = 315.0
+offset_bottom = -32.0
+disabled = true
+flat = true
+
+[node name="Football" type="Button" parent="GPS"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 102.0
+offset_right = 318.0
+offset_bottom = 179.0
+disabled = true
+flat = true
+
+[node name="Stage" type="Button" parent="GPS"]
+layout_mode = 0
+offset_left = -58.0
+offset_top = -41.0
+offset_right = 31.0
+offset_bottom = 10.0
+disabled = true
+flat = true
+
+[node name="Pool" type="Button" parent="GPS"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 36.0
+offset_right = 320.0
+offset_bottom = 101.0
+disabled = true
+flat = true
+
+[node name="order" type="Button" parent="."]
+offset_left = 242.0
+offset_right = 274.0
+offset_bottom = 32.0
+theme = ExtResource("5_o4e2f")
+script = ExtResource("10_e7k83")
+
+[node name="Sprite2D" type="Sprite2D" parent="order"]
+position = Vector2(15.5, 11.5)
+scale = Vector2(1.03125, 0.96875)
+texture = ExtResource("10_yc406")
+
+[node name="battery" type="Button" parent="."]
+offset_left = 202.0
+offset_right = 234.0
+offset_bottom = 32.0
+theme = ExtResource("5_o4e2f")
+script = ExtResource("11_xpk8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="battery"]
+position = Vector2(15.5, 11.5)
+scale = Vector2(1.03125, 0.96875)
+texture = ExtResource("11_mmbo8")
+
+[node name="NotificationPanelWeather" type="Panel" parent="."]
+offset_left = -159.0
+offset_top = -179.0
+offset_right = 136.0
+offset_bottom = -112.0
+theme = ExtResource("12_k2td0")
+script = ExtResource("13_qak7w")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NotificationPanelWeather"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 293.0
+offset_bottom = 65.0
+
+[node name="NotificationPanelEvents" type="Panel" parent="."]
+offset_left = -156.0
+offset_top = 73.0
+offset_right = 34.0
+offset_bottom = 179.0
+theme = ExtResource("12_k2td0")
+script = ExtResource("15_45c2h")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NotificationPanelEvents"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 189.0
+offset_bottom = 104.0
+
+[node name="Chat" type="Button" parent="."]
+offset_left = 162.0
+offset_right = 194.0
+offset_bottom = 32.0
+theme = ExtResource("5_o4e2f")
+script = ExtResource("18_u1ce0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chat"]
+position = Vector2(13, 15)
+scale = Vector2(1.03125, 0.96875)
+texture = ExtResource("18_bcxkv")

@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://lqf1poub48xy"]
+
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/kenneyUI-blue.tres" id="1_j4wsn"]
+[ext_resource type="Script" path="res://Scripts/manager_light_menu_1.gd" id="1_s4m8v"]
+[ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://assets/kenneyUI-green.tres" id="2_d62iv"]
+[ext_resource type="Theme" uid="uid://h1f7iqhh7ycb" path="res://assets/kenneyUI-yellow.tres" id="3_sqll0"]
+[ext_resource type="Script" path="res://Scripts/option_button_lights.gd" id="4_2ckev"]
+[ext_resource type="Script" path="res://Scripts/light_button_select_preset.gd" id="4_44kkp"]
+[ext_resource type="Texture2D" uid="uid://bl1chm2llnepy" path="res://assets/Tents/TENT_black.png" id="4_buogk"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://assets/kenneyUI.tres" id="5_rl3tt"]
+[ext_resource type="Script" path="res://Scripts/light_button_select_manual.gd" id="6_ln3ng"]
+[ext_resource type="Script" path="res://Scripts/tent_sprite_animation.gd" id="7_p50c6"]
+
+[node name="LightMenu1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s4m8v")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 254.0
+theme = ExtResource("1_j4wsn")
+
+[node name="Select" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 221.0
+offset_right = 98.0
+offset_bottom = 245.251
+theme = ExtResource("2_d62iv")
+script = ExtResource("4_44kkp")
+
+[node name="Label" type="Label" parent="Panel/Select"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 93.0
+offset_bottom = 19.0
+text = "Select
+"
+
+[node name="Manual" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 222.0
+offset_right = 256.0
+offset_bottom = 246.251
+theme = ExtResource("3_sqll0")
+script = ExtResource("6_ln3ng")
+
+[node name="Label" type="Label" parent="Panel/Manual"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 19.0
+text = "Manual
+"
+
+[node name="OptionButton" type="OptionButton" parent="Panel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 161.0
+offset_right = 248.0
+offset_bottom = 203.251
+theme = ExtResource("1_j4wsn")
+item_count = 4
+popup/item_0/text = "Reading"
+popup/item_1/text = "Sleep"
+popup/item_1/id = 1
+popup/item_2/text = "Dinner"
+popup/item_2/id = 2
+popup/item_3/text = "Raindbow"
+popup/item_3/id = 3
+script = ExtResource("4_2ckev")
+
+[node name="Label" type="Label" parent="Panel/OptionButton"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 173.0
+offset_bottom = 36.0
+theme = ExtResource("1_j4wsn")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Choose Preset"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 6.0
+offset_right = 244.0
+offset_bottom = 36.0
+theme = ExtResource("1_j4wsn")
+text = "CHoose Light preset"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(132, 125)
+zoom = Vector2(4, 2)
+
+[node name="Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 45.0
+offset_bottom = 43.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(58, 54)
+scale = Vector2(2.98438, 2.84375)
+texture = ExtResource("4_buogk")
+script = ExtResource("7_p50c6")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 31.0
+offset_right = 100.0
+offset_bottom = 54.0
+theme = ExtResource("5_rl3tt")
+text = "Preview"
+
+[connection signal="pressed" from="Panel/Select" to="Panel/Select" method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Manual" to="Panel/Manual" method="_on_button_pressed"]
+[connection signal="item_selected" from="Panel/OptionButton" to="Panel/OptionButton" method="_on_item_selected"]

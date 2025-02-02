@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvyklnrfarmek"]
+
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/kenneyUI-blue.tres" id="1_etmmq"]
+[ext_resource type="Script" path="res://Scripts/chat.gd" id="1_fcd5x"]
+[ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://assets/kenneyUI-green.tres" id="2_raky2"]
+[ext_resource type="Theme" uid="uid://mbsg4xqnedxi" path="res://assets/kenneyUI-red.tres" id="3_fbu72"]
+
+[node name="Chat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcd5x")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 385.0
+offset_bottom = 301.0
+theme = ExtResource("1_etmmq")
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 254.0
+offset_right = 294.0
+offset_bottom = 293.434
+
+[node name="Send" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 254.0
+offset_right = 381.0
+offset_bottom = 296.251
+theme = ExtResource("2_raky2")
+text = "SEND"
+
+[node name="Close" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 5.0
+offset_right = 380.0
+offset_bottom = 35.0
+theme = ExtResource("3_fbu72")
+
+[node name="Label" type="Label" parent="Panel/Close"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -30.0
+offset_right = 34.0
+offset_bottom = 53.0
+theme = ExtResource("3_fbu72")
+theme_override_font_sizes/font_size = 31
+text = "𐄂"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 43.0
+offset_right = 379.0
+offset_bottom = 251.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 349.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 22
+text = "CHAT WITH AN EMPLOYEE"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(203, 176)
+zoom = Vector2(2, 1)
+
+[node name="NobodyWhoModel" type="NobodyWhoModel" parent="."]
+model_path = "res://model/gemma-2-2b-it-abliterated-Q5_K_L.gguf"
+
+[node name="NobodyWhoChat" type="NobodyWhoChat" parent="." node_paths=PackedStringArray("model_node")]
+model_node = NodePath("../NobodyWhoModel")
+system_prompt = "You are a camper support assistant for a smart camping application."

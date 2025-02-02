@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://7c8malf5tjtg"]
+
+[ext_resource type="Theme" uid="uid://mbsg4xqnedxi" path="res://assets/kenneyUI-red.tres" id="1_lwt2c"]
+[ext_resource type="Script" path="res://Scripts/pop_up_tarp.gd" id="2_hcaxj"]
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/kenneyUI-blue.tres" id="3_t53g2"]
+
+[node name="Window" type="Window"]
+title = "wind speed critical"
+initial_position = 1
+size = Vector2i(269, 95)
+theme = ExtResource("1_lwt2c")
+script = ExtResource("2_hcaxj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("3_t53g2")
+
+[node name="ManualButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Manual placement"
+
+[node name="AutomaticButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Automatic placement"

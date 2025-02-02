@@ -1,0 +1,212 @@
+[gd_scene load_steps=10 format=3 uid="uid://rbxj6bplhrwx"]
+
+[ext_resource type="Script" path="res://Scripts/light_menu_2_manager.gd" id="1_dfle0"]
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/kenneyUI-blue.tres" id="1_vk0r1"]
+[ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://assets/kenneyUI-green.tres" id="2_a5gci"]
+[ext_resource type="Theme" uid="uid://mbsg4xqnedxi" path="res://assets/kenneyUI-red.tres" id="3_t0xf5"]
+[ext_resource type="Texture2D" uid="uid://bl1chm2llnepy" path="res://assets/Tents/TENT_black.png" id="4_n75kb"]
+[ext_resource type="Script" path="res://Scripts/light_menu_2_confirm.gd" id="4_vbtfv"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://assets/kenneyUI.tres" id="5_lna72"]
+[ext_resource type="Script" path="res://Scripts/light_menu_2_reject.gd" id="6_0jya4"]
+[ext_resource type="Script" path="res://Scripts/light_menu_2_h_slider.gd" id="9_p23xa"]
+
+[node name="LightMenu2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dfle0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 254.0
+theme = ExtResource("1_vk0r1")
+
+[node name="Confirm" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 185.0
+offset_right = 121.0
+offset_bottom = 245.0
+theme = ExtResource("2_a5gci")
+script = ExtResource("4_vbtfv")
+
+[node name="Confirm" type="Label" parent="Panel/Confirm"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 19.0
+offset_right = 101.0
+offset_bottom = 37.0
+text = "Confirm
+"
+
+[node name="Reject" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 222.0
+offset_right = 256.0
+offset_bottom = 246.251
+theme = ExtResource("3_t0xf5")
+script = ExtResource("6_0jya4")
+
+[node name="Label" type="Label" parent="Panel/Reject"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 19.0
+text = "Reject
+
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 6.0
+offset_right = 244.0
+offset_bottom = 36.0
+theme = ExtResource("1_vk0r1")
+text = "CHoose Light preset"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(132, 125)
+zoom = Vector2(4, 2)
+
+[node name="Manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 45.0
+offset_bottom = 43.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(58, 54)
+scale = Vector2(2.98438, 2.84375)
+texture = ExtResource("4_n75kb")
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 124.0
+offset_bottom = 143.0
+theme = ExtResource("5_lna72")
+theme_override_font_sizes/font_size = 12
+text = "Color Picker"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 124.0
+offset_right = 257.0
+offset_bottom = 145.0
+theme = ExtResource("5_lna72")
+text = "Brightness"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 31.0
+offset_right = 100.0
+offset_bottom = 54.0
+theme = ExtResource("5_lna72")
+text = "Preview"
+
+[node name="ColorPreview" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorPreview"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 94.0
+offset_right = 46.0
+offset_bottom = 97.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorPreview"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 91.0
+offset_right = 46.0
+offset_bottom = 94.0
+
+[node name="ColorRect3" type="ColorRect" parent="ColorPreview"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 88.0
+offset_right = 43.0
+offset_bottom = 91.0
+
+[node name="ColorRect4" type="ColorRect" parent="ColorPreview"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 85.0
+offset_right = 43.0
+offset_bottom = 88.0
+
+[node name="ColorRect5" type="ColorRect" parent="ColorPreview"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 82.0
+offset_right = 40.0
+offset_bottom = 85.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 146.0
+offset_right = 253.0
+offset_bottom = 173.0
+value = 100.0
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 173.0
+offset_right = 252.0
+offset_bottom = 215.0
+theme = ExtResource("1_vk0r1")
+value = 100.0
+script = ExtResource("9_p23xa")
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 58.0
+offset_right = 252.0
+offset_bottom = 100.251
+theme = ExtResource("1_vk0r1")
+text_overrun_behavior = 3
+autowrap_mode = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "Static"
+popup/item_1/text = "Breathing"
+popup/item_1/id = 1
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 31.0
+offset_right = 266.0
+offset_bottom = 54.0
+theme = ExtResource("5_lna72")
+theme_override_font_sizes/font_size = 15
+text = "Effect Picker"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 137.0
+offset_right = 121.0
+offset_bottom = 179.0
+theme = ExtResource("1_vk0r1")
+
+[connection signal="pressed" from="Panel/Confirm" to="Panel/Confirm" method="_pressed"]
+[connection signal="pressed" from="Panel/Reject" to="Panel/Reject" method="_pressed"]
+[connection signal="value_changed" from="HSlider" to="HSlider" method="_value_changed"]

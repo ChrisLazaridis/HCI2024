@@ -1,0 +1,202 @@
+[gd_scene load_steps=11 format=3 uid="uid://xstpk8f4stq7"]
+
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/kenneyUI-blue.tres" id="1_cfo3g"]
+[ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://assets/kenneyUI-green.tres" id="2_m2vh5"]
+[ext_resource type="Theme" uid="uid://mbsg4xqnedxi" path="res://assets/kenneyUI-red.tres" id="3_461bp"]
+[ext_resource type="Script" path="res://Scripts/confirm.gd" id="3_g7q3u"]
+[ext_resource type="Script" path="res://Scripts/v_slider.gd" id="4_bbm4a"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://assets/kenneyUI.tres" id="4_l8c4f"]
+[ext_resource type="Script" path="res://Scripts/h_slider.gd" id="5_pvugs"]
+[ext_resource type="Script" path="res://Scripts/reject.gd" id="5_xpewp"]
+[ext_resource type="Texture2D" uid="uid://byqo7gqcatsi1" path="res://assets/PASALOS.png" id="6_v1com"]
+[ext_resource type="Texture2D" uid="uid://bbnoq4kt1oror" path="res://assets/dirt.png" id="7_hoq3e"]
+
+[node name="PicketNailingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 254.0
+theme = ExtResource("1_cfo3g")
+
+[node name="confirm" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 151.0
+offset_right = 255.0
+offset_bottom = 175.251
+theme = ExtResource("2_m2vh5")
+script = ExtResource("3_g7q3u")
+
+[node name="Label" type="Label" parent="Panel/confirm"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 93.0
+offset_bottom = 19.0
+text = "Confirm"
+
+[node name="reject" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 224.0
+offset_right = 255.0
+offset_bottom = 248.251
+theme = ExtResource("3_461bp")
+script = ExtResource("5_xpewp")
+
+[node name="Label" type="Label" parent="Panel/reject"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 85.0
+offset_bottom = 19.0
+text = "Reject"
+
+[node name="VerticalSlider" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 85.0
+offset_top = 154.0
+offset_right = 131.0
+offset_bottom = 248.0
+
+[node name="VSlider" type="VSlider" parent="VerticalSlider"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 97.0
+offset_bottom = 95.0
+theme = ExtResource("1_cfo3g")
+script = ExtResource("4_bbm4a")
+
+[node name="HorizontalSlider" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 192.0
+offset_right = 96.0
+offset_bottom = 222.0
+
+[node name="HSlider" type="HSlider" parent="HorizontalSlider"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -3.0
+offset_right = 97.0
+offset_bottom = 39.0
+theme = ExtResource("1_cfo3g")
+script = ExtResource("5_pvugs")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 3.0
+offset_right = 231.0
+offset_bottom = 33.0
+theme = ExtResource("1_cfo3g")
+text = "Nail the pickets"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 178.0
+offset_right = 239.0
+offset_bottom = 218.0
+theme = ExtResource("4_l8c4f")
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 39.0
+theme = ExtResource("1_cfo3g")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1/4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Minigame" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 23.0
+offset_right = 256.0
+offset_bottom = 147.0
+
+[node name="Pasalos" type="Sprite2D" parent="Minigame"]
+position = Vector2(119, 102)
+scale = Vector2(1.875, 1.8125)
+texture = ExtResource("6_v1com")
+
+[node name="SklhroXwma6" type="Sprite2D" parent="Minigame"]
+position = Vector2(220, 92)
+texture = ExtResource("7_hoq3e")
+
+[node name="SklhroXwma5" type="Sprite2D" parent="Minigame"]
+position = Vector2(106, 92)
+texture = ExtResource("7_hoq3e")
+
+[node name="SklhroXwma4" type="Sprite2D" parent="Minigame"]
+position = Vector2(213, 92)
+texture = ExtResource("7_hoq3e")
+
+[node name="SklhroXwma3" type="Sprite2D" parent="Minigame"]
+position = Vector2(156, 92)
+texture = ExtResource("7_hoq3e")
+
+[node name="SklhroXwma2" type="Sprite2D" parent="Minigame"]
+position = Vector2(95, 92)
+texture = ExtResource("7_hoq3e")
+
+[node name="SklhroXwma" type="Sprite2D" parent="Minigame"]
+position = Vector2(32, 92)
+texture = ExtResource("7_hoq3e")
+
+[node name="Panel" type="Panel" parent="Minigame"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 1.0
+offset_right = 249.0
+offset_bottom = 45.0
+theme = ExtResource("3_461bp")
+
+[node name="Panel" type="Panel" parent="Minigame/Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 45.0
+offset_bottom = 40.0
+theme = ExtResource("4_l8c4f")
+
+[node name="Label_Valid" type="Label" parent="Minigame/Panel/Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 51.0
+offset_bottom = 51.0
+theme = ExtResource("1_cfo3g")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "✓"
+
+[node name="Label_Invalid" type="Label" parent="Minigame/Panel/Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -53.0
+offset_right = 60.0
+offset_bottom = 140.0
+theme = ExtResource("1_cfo3g")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 54
+text = "𐄂"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(132, 125)
+zoom = Vector2(4, 2)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[connection signal="pressed" from="Panel/confirm" to="Panel/confirm" method="_on_pressed"]
+[connection signal="pressed" from="Panel/reject" to="Panel/reject" method="_on_pressed"]

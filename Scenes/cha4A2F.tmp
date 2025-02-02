@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvyklnrfarmek"]
+
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/kenneyUI-blue.tres" id="1_etmmq"]
+[ext_resource type="Script" path="res://Scripts/chat.gd" id="1_fcd5x"]
+[ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://assets/kenneyUI-green.tres" id="2_raky2"]
+[ext_resource type="Theme" uid="uid://mbsg4xqnedxi" path="res://assets/kenneyUI-red.tres" id="3_fbu72"]
+
+[node name="Chat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcd5x")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 254.0
+theme = ExtResource("1_etmmq")
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 210.0
+offset_right = 168.0
+offset_bottom = 249.434
+
+[node name="Send" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 209.0
+offset_right = 255.0
+offset_bottom = 233.251
+theme = ExtResource("2_raky2")
+text = "SEND"
+
+[node name="Close" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 8.0
+offset_right = 252.0
+offset_bottom = 38.0
+theme = ExtResource("3_fbu72")
+
+[node name="Label" type="Label" parent="Panel/Close"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -30.0
+offset_right = 34.0
+offset_bottom = 53.0
+theme = ExtResource("3_fbu72")
+theme_override_font_sizes/font_size = 31
+text = "𐄂"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 41.0
+offset_right = 257.0
+offset_bottom = 207.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(132, 125)
+zoom = Vector2(4, 2)

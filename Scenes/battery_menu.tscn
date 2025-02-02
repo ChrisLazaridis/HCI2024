@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://oavht2gtns0t"]
+
+[ext_resource type="Script" path="res://Scripts/battery_menu.gd" id="1_p2hgy"]
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://assets/kenneyUI-blue.tres" id="2_aq2m3"]
+[ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://assets/kenneyUI-green.tres" id="3_rl1ua"]
+[ext_resource type="Script" path="res://Scripts/light_menu_2_confirm.gd" id="4_d2e82"]
+[ext_resource type="Theme" uid="uid://6shp5ck1tnja" path="res://assets/kenneyUI.tres" id="5_s2648"]
+
+[node name="BatteryMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p2hgy")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 254.0
+theme = ExtResource("2_aq2m3")
+
+[node name="Confirm" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 166.0
+offset_right = 180.0
+offset_bottom = 226.0
+theme = ExtResource("3_rl1ua")
+script = ExtResource("4_d2e82")
+
+[node name="Confirm" type="Label" parent="Panel/Confirm"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 19.0
+offset_right = 101.0
+offset_bottom = 37.0
+text = "Confirm
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 6.0
+offset_right = 244.0
+offset_bottom = 36.0
+theme = ExtResource("2_aq2m3")
+text = "Choose energy mode"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(132, 125)
+zoom = Vector2(4, 2)
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 89.0
+offset_right = 209.0
+offset_bottom = 162.0
+theme = ExtResource("2_aq2m3")
+text_overrun_behavior = 3
+autowrap_mode = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "no save"
+popup/item_1/text = "moderate"
+popup/item_1/id = 1
+popup/item_2/text = "full battery saver"
+popup/item_2/id = 2
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 69.0
+offset_right = 190.0
+offset_bottom = 92.0
+theme = ExtResource("5_s2648")
+theme_override_font_sizes/font_size = 15
+text = "Mode Picker
+"
+
+[connection signal="pressed" from="Panel/Confirm" to="Panel/Confirm" method="_pressed"]
