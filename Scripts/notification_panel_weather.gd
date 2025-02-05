@@ -50,6 +50,14 @@ func _initialize_script():
 
 	# Initialize the first weather notification
 	_update_weather_notification()
+	
+	# Create a button to display weather info in a pop-up
+	var weather_info_button = Button.new()
+	weather_info_button.name = "WeatherInfoButton"
+	weather_info_button.text = "Show Weather Info"
+	weather_info_button.connect("pressed", Callable(self, "_on_show_weather_popup"))
+	# Add the button as the last child inside the VBoxContainer (so it appears at the bottom)
+	vbox.add_child(weather_info_button)
 
 func _update_weather_notification():
 	# Select a random weather condition
@@ -72,17 +80,40 @@ func _update_weather_notification():
 		print("Error: VBoxContainer node not found.")
 		return
 
+	# Format weather information text
+	var weather_text = "Weather: %s\nWind Speed: %d Beaufort\nWind Direction: %s\nHumidity: %d%%\nTemperature: %d°C" % [weather, wind_speed, wind_direction, humidity, temperature]
+	
 	# Check if a weather notification already exists
 	var weather_label = vbox.get_node_or_null("WeatherNotification")
 	if weather_label:
 		# Update existing weather notification
-		weather_label.text = "Weather: %s\nWind Speed: %d Beaufort\nWind Direction: %s\nHumidity: %d%%\nTemperature: %d°C" % [weather, wind_speed, wind_direction, humidity, temperature]
+		weather_label.text = weather_text
 	else:
 		# Create a new weather notification
 		weather_label = Label.new()
 		weather_label.name = "WeatherNotification"
-		weather_label.text = "Weather: %s\nWind Speed: %d Beaufort\nWind Direction: %s\nHumidity: %d%%\nTemperature: %d°C" % [weather, wind_speed, wind_direction, humidity, temperature]
+		weather_label.text = weather_text
 		vbox.add_child(weather_label)
 		# Apply theme overrides
 		weather_label.add_theme_color_override("font_color", Color(0, 0, 0))
 		weather_label.add_theme_font_size_override("font_size", 10)
+
+func _on_show_weather_popup():
+	# Retrieve the current weather information from the label
+	var vbox = $ScrollContainer/VBoxContainer
+	if vbox == null:
+		print("Error: VBoxContainer node not found.")
+		return
+	
+	var weather_label = vbox.get_node_or_null("WeatherNotification")
+	var weather_text = ""
+	if weather_label:
+		weather_text = weather_label.text
+	else:
+		weather_text = "No weather information available."
+	
+	# Create and display a popup dialog with the weather info
+	var popup = AcceptDialog.new()
+	popup.dialog_text = weather_text
+	add_child(popup)
+	popup.popup_centered()

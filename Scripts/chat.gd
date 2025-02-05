@@ -9,14 +9,60 @@ var typing_panel: PanelContainer = null
 var typing_timer: Timer = null
 var typing_label: Label = null  # Reference to the typing label
 
+# New thread variable
+var worker_thread: Thread = Thread.new()
+# Variable to store the waiting (system) message panel
+var waiting_message_panel: PanelContainer = null
+
 func _ready() -> void:
-	# Connect signals
+	# Connect signals from the chat model
 	nobodywho_chat.connect("response_updated", Callable(self, "_on_response_updated"))
 	nobodywho_chat.connect("response_finished", Callable(self, "_on_response_finished"))
 	send_button.pressed.connect(_on_send_button_pressed)
 	
-	# Start the LLM worker
+	# Show a waiting message before starting heavy weight-loading
+	_show_waiting_message()
+	
+	# Start the heavy weight-loading in a separate thread.
+	# Note: Ensure that nobodywho_chat.start_worker() is safe to run off the main thread.
+	worker_thread.start(Callable(self, "_threaded_start_worker"))
+
+func _show_waiting_message() -> void:
+	# Create and add a system message indicating that the user should wait
+	waiting_message_panel = PanelContainer.new()
+	var message_label = Label.new()
+	message_label.text = "please wait for an employee to join the chat"
+	message_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	message_label.horizontal_alignment = 0
+	message_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	waiting_message_panel.add_child(message_label)
+	waiting_message_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	waiting_message_panel.custom_minimum_size = Vector2(360, 0)
+	chat_container.add_child(waiting_message_panel)
+	chat_container.move_child(waiting_message_panel, chat_container.get_child_count() - 1)
+
+func _replace_waiting_message_with_employee() -> void:
+	# Remove the waiting message if it exists
+	if waiting_message_panel and waiting_message_panel.is_inside_tree():
+		chat_container.remove_child(waiting_message_panel)
+		waiting_message_panel.queue_free()
+		waiting_message_panel = null
+	# Add the employee join message (using an employee number)
+	var employee_message = "Employee 1 joined the chat"
+	_add_message(employee_message, false)
+
+func _threaded_start_worker(userdata = null) -> void:
+	# Offload the heavy work off the main thread.
 	nobodywho_chat.start_worker()
+	# Signal completion back to the main thread:
+	call_deferred("_on_worker_finished")
+	# When finished, wait for the thread to complete.
+	worker_thread.wait_to_finish()
+
+func _on_worker_finished() -> void:
+	# Replace the waiting message with the employee join message.
+	_replace_waiting_message_with_employee()
+	print("Weight loading finished.")
 
 func _on_send_button_pressed() -> void:
 	var user_message = input_field.text.strip_edges()
@@ -114,4 +160,4 @@ func _remove_typing_indicator() -> void:
 func _get_current_timestamp() -> String:
 	var unix_time = Time.get_unix_time_from_system()
 	var datetime_dict = Time.get_datetime_dict_from_unix_time(unix_time)
-	return "%02d:%02d" % [datetime_dict.hour+2, datetime_dict.minute]
+	return "%02d:%02d" % [datetime_dict.hour + 2, datetime_dict.minute]

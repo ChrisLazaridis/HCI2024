@@ -24,15 +24,11 @@ func _ready():
 	# Add timers to the scene
 	add_child(event_timer)
 
-
 	# Configure event timer (random interval between 2 to 3 minutes)
 	event_timer.wait_time = randi() % 60 + 120  # Random time between 120 to 180 seconds
 	event_timer.connect("timeout", Callable(self, "_add_event_notification"))
 	event_timer.start()
 	_add_event_notification()
-
-
-
 
 func _add_event_notification():
 	# Select a random team event
@@ -56,13 +52,13 @@ func _add_event_notification():
 	event_label.add_theme_color_override("font_color", Color(0, 0, 0))
 	event_label.add_theme_font_size_override("font_size", 8)
 
-	# Create and add the Accept button
+	# Create and add the Accept button (this now spawns a popup)
 	var accept_button = Button.new()
 	accept_button.text = "✓"
-	accept_button.connect("pressed", Callable(self, "_remove_notification").bind(event_hbox))
+	accept_button.connect("pressed", Callable(self, "_on_accept_event").bind(event_hbox))
 	event_hbox.add_child(accept_button)
 
-	# Create and add the Dismiss button
+	# Create and add the Dismiss button (removes notification without popup)
 	var dismiss_button = Button.new()
 	dismiss_button.text = "𐄂"
 	dismiss_button.connect("pressed", Callable(self, "_remove_notification").bind(event_hbox))
@@ -82,6 +78,25 @@ func _remove_notification(notification):
 	if vbox:
 		vbox.remove_child(notification)
 	notification.queue_free()
+
+func _on_accept_event(notification):
+	# Remove the event notification
+	_remove_notification(notification)
+	# Create a popup that informs the user they signed up for an event at a random date and time
+	var dialog = AcceptDialog.new()
+	dialog.dialog_text = "You have signed up for the event on " + generate_random_datetime()
+	add_child(dialog)
+	dialog.popup_centered()
+
+func generate_random_datetime():
+	# Generate random date and time values
+	var year = 2025
+	var month = randi() % 12 + 1
+	var day = randi() % 28 + 1
+	var hour = randi() % 24
+	var minute = randi() % 60
+	# Format the date and time string (MM/DD/YYYY HH:MM)
+	return str(month, "/", day, "/", year, " ", hour, ":", minute)
 
 func _on_order():
 	await get_tree().create_timer(20.0).timeout
@@ -103,12 +118,11 @@ func _on_order():
 	order_label.add_theme_color_override("font_color", Color(0, 0, 0))
 	order_label.add_theme_font_size_override("font_size", 8)
 
-	# Create and add the Accept button
+	# Create and add the Accept button (here we simply remove the notification)
 	var accept_button = Button.new()
 	accept_button.text = "✓"
 	accept_button.connect("pressed", Callable(self, "_remove_notification").bind(event_hbox))
 	event_hbox.add_child(accept_button)
-
 
 	# Add the event notification to the VBoxContainer
 	vbox.add_child(event_hbox)
